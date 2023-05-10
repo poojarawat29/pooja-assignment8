@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{ text-transform: capitalize;
+       
+
+    }
+    body{
+        background-image: url(IMG20230307151036.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h1{
+        color: rgb(3, 3, 255);
+        margin-left: 38vw;
+        text-shadow: 2px 1px 5px black;
+        font-size: 50px;
+       
+       
+    }
+  .container{
+    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    
+    
+  }
+  main{
+    border: 3px solid rgb(1, 32, 11);
+    border-radius: 20px;
+    padding: 30px;
+    background-image: linear-gradient(to bottom right,rgb(135, 201, 228),rgb(20, 171, 218)) ;
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+  }
+  .one{
+    margin-block: 10px;
+   }
+  label{
+     color: rgb(0, 40, 87);
+     font-weight:1000 ;
+     width: 250px;
+     display: inline-block;
+     
+
+  }
+  input[TYPE="TEXT"],
+input[TYPE="NUMBER"],
+input[TYPE="EMAIL"],
+input[TYPE="PASSWORD"],
+SELECT {
+    width: 50%;
+  padding: 12px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  margin: 15px 30px;
+}
+
+}
+
+     button{
+        border-radius: 20px;
+        margin-left: 173px;
+        padding: 4px;
+     }
+     #submit{
+        border: 2px solid black;
+    border-radius: 7px;
+    
+    padding: 12px;
+    margin: 12px;
+    align-self:center;
+cursor: pointer;
+     }
+
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>assingment 8</h1>
+    </header>
+    <div class="container">
+
+        <main>
+            <div class="one">
+                <label for="firstname" id="firstname1">first name</label>
+                <input type="text" name="firstname" id="firstname" value="">
+            </div>
+            <div class="one">
+                <label for="lastname" id="lastname1">last name</label>
+            <input type="text" name="lastname" id="lastname">
+
+        </div>
+        <div class="one">
+            <label for="password" id="password1">password.</label>
+            <input type="password" name="password" id="password">
+
+        </div>
+        <div class="one">
+            <label for="phoneno" id="phone1">phone no.</label>
+            <input type="text" name="phoneno." id="phoneno" class="">
+        </div>
+        <div class="one">
+            <label for="email" id="email1">email</label>
+            <input type="text" name="email" id="email">
+        </div>
+        <div class="one">
+            <label for="term" id="tandc">i agree to the given term and condition:</label>
+             <input type="checkbox" name="term" id="term" value="checked">
+            
+        </div>
+        <div class="one">
+            <button type="button" id="submit">submit</button>
+        </div>
+    </main>
+
+</div>
+<script>
+
+
+    function pkr(){
+        const firstnameinput = document.getElementById("firstname")
+        const lastnameinput = document.getElementById("lastname")
+        const passwordinput = document.getElementById("password")
+        const emailinput = document.getElementById("email")
+        const phonenoinput = document.getElementById("phoneno")
+        const terminput = document.getElementById("term")
+        var passw=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var phoneno = /^\d{10}$/;
+
+        if(firstnameinput.value == "" ){
+            alert("first Name can't Empty")
+        }
+        if(lastnameinput.value==""){
+            alert("Last Name Can't Empty")
+          }
+       
+        else{
+            console.log("first-name=",firstnameinput.value)
+            console.log("last-name=",lastnameinput.value)
+
+            // if(passwordinput.value.match(passw)){
+            //     console.log("password=",passwordinput.value)
+            //     return true;
+            // }
+            // else{
+            //     alert("The password field must be at least 8 characters long and must contain at least one numeric value and one uppercase value")
+            //     return false;
+            // }
+            
+            if(emailinput.value.match(mailformat)){
+            console.log("Email=",emailinput.value)}
+            else{
+            alert("Type valid email address")
+            }
+            if(phonenoinput.value.match(phoneno)){
+                console.log("Phone NUMBER=",phonenoinput.value)
+            }
+            else{
+                alert("Type Correct PHONE Number")
+            }
+            if(terminput.checked){
+                
+                console.log("term and condition=",terminput.value)
+                return true;
+            }
+            else{
+                alert("select the term and condition")
+                return false;
+            }
+           
+            
+
+        }
+        
+    }
+    
+const button = document.getElementById("submit")
+button.addEventListener("click",pkr)
+
+
+    </script>
+</body>
+</html>
